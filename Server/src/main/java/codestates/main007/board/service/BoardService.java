@@ -20,9 +20,11 @@ import codestates.main007.station.Station;
 import codestates.main007.tag.entity.Tag;
 import codestates.main007.tag.service.TagService;
 import lombok.RequiredArgsConstructor;
+import org.locationtech.jts.geom.Coordinate;
+import org.locationtech.jts.geom.GeometryFactory;
 import org.locationtech.jts.geom.Point;
+import org.locationtech.jts.geom.PrecisionModel;
 import org.locationtech.jts.io.ParseException;
-import org.locationtech.jts.io.WKTReader;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.data.domain.Sort;
@@ -354,9 +356,9 @@ public class BoardService {
     }
     public void changePoint() throws ParseException {
         List<Board> list = boardRepository.findAll();
+        GeometryFactory geometryFactory = new GeometryFactory(new PrecisionModel(), 4326);
         for (Board board : list) {
-            String pointWKT = String.format("POINT(%s %s)", board.getLongitude(), board.getLatitude());
-            Point point = (Point) new WKTReader().read(pointWKT);
+            Point point = geometryFactory.createPoint(new Coordinate(board.getLatitude(), board.getLongitude()));
             board.setPoint(point);
             save(board);
         }
