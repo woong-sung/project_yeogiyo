@@ -201,4 +201,8 @@ public class Board {
     public void setBoardPlanners(List<BoardPlanner> boardPlanners){
         this.boardPlanners = boardPlanners;
     }
+
+    public void setPoint(Point point) {
+        this.geography = point;
+    }
 }
