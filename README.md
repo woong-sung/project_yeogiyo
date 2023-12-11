@@ -2,7 +2,7 @@
 ### 팀명 : 🚂역이요
 ### 설명 : 국내 기차 여행 커뮤니티
 #### 개발 기간 : 2022/11/08 ~ 2022/12/06
-#### 배포 주소 : http://yeogiyo.site
+#### 배포 주소 : ~~http://yeogiyo.site~~ 배포중지
 
 ## 로고
 <img src = "https://pre-032-bucket.s3.ap-northeast-2.amazonaws.com/text_logo_ver4.png" >
